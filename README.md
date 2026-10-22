@@ -2,10 +2,6 @@
 
 I develop modelling and scientific-computing tools spanning atmospheric simulation, wind energy, reproducible workflows and local AI.
 
-My work combines numerical modelling, scientific Python and software engineering.
-Atmospheric science and wind energy are important applications; the wider goal
-is to make complex computational tools easier to run, inspect and reuse.
-
 ## Selected projects
 
 | Project | What you can use it for | Engineering focus |

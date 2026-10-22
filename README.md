@@ -1,5 +1,3 @@
-# Hi, I'm Adi
-
 **Scientific software · Reproducible automation · Practical local AI**
 
 I turn research workflows into usable software—from atmospheric simulations

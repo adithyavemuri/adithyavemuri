@@ -1,7 +1,6 @@
 **Computational wind & atmospheric modelling · Scientific software · Reproducible workflows**
 
-I turn research workflows into usable software—from atmospheric simulations
-and scientific visualisation to reproducible automation and locally run AI.
+I develop modelling and scientific-computing tools spanning atmospheric simulation, wind energy, reproducible workflows and local AI.
 
 My work combines numerical modelling, scientific Python and software engineering.
 Atmospheric science and wind energy are important applications; the wider goal

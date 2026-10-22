@@ -1,4 +1,4 @@
-**Scientific software · Reproducible automation · Practical local AI**
+**Computational wind & atmospheric modelling · Scientific software · Reproducible workflows**
 
 I turn research workflows into usable software—from atmospheric simulations
 and scientific visualisation to reproducible automation and locally run AI.

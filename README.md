@@ -1,18 +1,21 @@
 # Computational Scientist
 
-**Atmospheric Physics · Wind Energy · Scientific Software**
+**Atmospheric Physics · Wind Energy · Scientific Modelling & Tools**
 
 I'm Adi, a computational scientist at KNMI with a PhD and research experience
 in atmospheric flows, turbulence and numerical modelling.
 
-I develop open-source scientific software that connects atmospheric simulations,
-wind-energy analysis and reproducible computational workflows—from model setup
-and execution to physical diagnostics and visualisation. Together, these projects
-form the building blocks of an integrated atmospheric and wind-energy modelling
-platform.
+My work focuses on understanding atmospheric processes and their applications
+to wind energy through numerical simulations, physical analysis and
+computational methods.
 
-**Development focus:** extending reproducible atmospheric modelling workflows
-toward physics-ensemble experiments and turbine-aware wind-farm simulations.
+I develop scientific tools and reproducible modelling workflows that connect
+atmospheric simulations, wind-energy analysis and physical diagnostics.
+Together, these projects form the building blocks of an integrated atmospheric
+and wind-energy modelling platform.
+
+**Current focus:** physics-ensemble experiments, turbine-aware wind-farm
+simulations and integrated atmospheric modelling workflows.
 
 ## Start here
 
@@ -80,12 +83,12 @@ OpenCode is the default coding client; Cline and the optional
 supported. See [platform support](https://github.com/adithyavemuri/LocalHarness/blob/main/SUPPORT.md)
 for the tested compatibility boundary.
 
-## Interests
+## Research interests
 
-- Turbulence, atmospheric flows and wind energy.
-- Reproducible scientific computing and research software.
-- Clear, useful scientific visualisation.
-- Build automation, practical local AI and tools that make complex workflows usable.
+- Atmospheric boundary-layer dynamics and turbulence.
+- Wind-farm wakes and atmosphere–turbine interactions.
+- Numerical modelling, physics ensembles and model uncertainty.
+- Physical interpretation and reproducible computational research.
 
 ## Connect
 

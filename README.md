@@ -1,38 +1,93 @@
-**Computational wind & atmospheric modelling · Scientific software · Reproducible workflows**
+# Adi · Atmospheric modelling, wind energy & scientific software
 
-I develop modelling and scientific-computing tools spanning atmospheric simulation, wind energy, reproducible workflows and local AI.
+I'm building an **integrated atmospheric and wind-energy modelling platform**:
+from reproducible ERA5-driven WRF simulations to turbulence diagnostics,
+scientific visualisation and wind-turbine inflow.
 
-## Selected projects
+My work connects numerical modelling, scientific Python and software engineering.
+The aim is to make research workflows easier to run, inspect and reuse.
+Alongside this, I build practical local AI tooling
+for software development beyond atmospheric science.
 
-| Project | What you can use it for | Engineering focus |
-| --- | --- | --- |
-| **[WRF_tools](https://github.com/adithyavemuri/WRF_tools)** | Analyse and visualise WRF/WRF-LES output, including turbulence and wind-energy diagnostics. | Scientific computing, diagnostics and visualisation |
-| **[qwen-local](https://github.com/adithyavemuri/qwen-local)** | Download verified GGUF models and switch between Qwen, Gemma and Phi in a local browser. | Local AI deployment, model management and user-space setup |
-| **[wrf-autocompiler](https://github.com/adithyavemuri/wrf-autocompiler)** | Build WRF-ARW/WPS with configurable build options and prerequisite checks, without root access. | Build automation and dependency management |
-| **[wrf-era5-case](https://github.com/adithyavemuri/wrf-era5-case)** | Prepare ERA5 reanalysis inputs and readable WRF/WPS case configuration from TOML. | Data acquisition and reproducible simulation preparation |
+## Start here
 
-These are public, reusable projects. Each repository documents its setup,
-examples and limitations. For qwen-local, Linux operation is verified; Windows
-compatibility scripts are provided but end-to-end runtime testing is deferred.
+**[WRF_tools](https://github.com/adithyavemuri/WRF_tools)** is the public entry
+point: analyse existing WRF output, explore the diagnostics and see the results
+without compiling or running a new simulation.
 
-## In practice
+- **See the result:** [real-data demonstration PDF](https://github.com/adithyavemuri/WRF_tools/blob/main/example_results/final-report/hindcast-report.pdf).
+- **Try it on your data:** [beginner examples](https://github.com/adithyavemuri/WRF_tools/blob/main/examples/README.md).
+- **Prepare a simulation:** [TOML-driven ERA5 cases](https://github.com/adithyavemuri/wrf-era5-case) and [rootless WRF/WPS builds](https://github.com/adithyavemuri/wrf-autocompiler).
+- **Run local coding models:** [LocalHarness](https://github.com/adithyavemuri/LocalHarness), previously named `qwen-local`.
 
-### From model output to a scientific explanation
+## How the pieces fit together
+
+```mermaid
+flowchart TD
+    config["Case TOML<br/>Dates, domains and physics"] --> prepare["wrf-era5-case<br/>ERA5, geodata and namelists"]
+    build["wrf-autocompiler<br/>Build WRF and WPS"] --> run["Simulation<br/>WPS → real.exe → wrf.exe"]
+    prepare --> run
+    run --> analyse["WRF_tools<br/>Analyse WRF output"]
+    analyse --> reports["Scientific figures<br/>PDF / HTML reports<br/>Interactive 3-D views"]
+    analyse --> inflow["With suitable WRF-LES velocity data<br/>TurbSim inflow for OpenFAST"]
+```
+
+The public packages are independent building blocks. A **private workflow
+prototype** connects build, preparation, execution and reporting; the diagram
+does not imply that the public packages alone provide a one-command runner.
+WRF-LES inflow generation is a separate workflow requiring suitable temporal
+sampling, velocity extraction and coordinate checks—not an automatic conversion
+of an hourly mesoscale hindcast.
+
+## Public building blocks
+
+| Project | Role in the platform |
+| --- | --- |
+| **[wrf-autocompiler](https://github.com/adithyavemuri/wrf-autocompiler)** | Build WRF-ARW/WPS without root access, with configurable compiler, dependency and build-mode choices. |
+| **[wrf-era5-case](https://github.com/adithyavemuri/wrf-era5-case)** | Download ERA5/geodata and generate readable WRF/WPS configuration from TOML, including stationary one-way nests. |
+| **[WRF_tools](https://github.com/adithyavemuri/WRF_tools)** | Analyse WRF/WRF-LES output: meteorology, turbulence, wind energy, comparisons, visualisation, reports and TurbSim/OpenFAST inflow. |
+| **[wrf-source-tools](https://github.com/adithyavemuri/wrf-source-tools)** | Inspect WRF Fortran interfaces, direct-call chains and selected assignments offline; support source-level investigation. |
+| **[LocalHarness](https://github.com/adithyavemuri/LocalHarness)** | Set up local Qwen, Gemma and Phi models, with OpenCode, Cline support, shared skills and browser switching. Optional development support, not part of the numerical model. |
+
+Each repository provides its own setup, examples and limitations. LocalHarness
+has locally verified Linux operation; Windows compatibility is implemented but
+not yet validated end to end. Local models do not replace scientific review.
+
+## Short demonstration: WRF output → a scientific report
 
 [![WRF_tools wind and boundary-layer diagnostics: map, vertical section, time-height evolution and profiles](https://raw.githubusercontent.com/adithyavemuri/WRF_tools/main/docs/demo/d02-wind-overview.png)](https://github.com/adithyavemuri/WRF_tools)
 
-An example produced with **WRF_tools**: geographic context, a vertical section,
-time-height evolution and wind profiles in one view. This is model output,
-not observational validation.
+This **WRF_tools** figure combines a wind map, vertical section, time-height
+evolution and profiles. The linked demonstration report uses a two-domain
+Netherlands hindcast: 9 km and 3 km grids, 10 January 2025, 00–06 UTC.
 
-### Local models, one browser
+To generate a report from your own output, clone `WRF_tools`, follow its
+[installation guide](https://github.com/adithyavemuri/WRF_tools#installation),
+then run from that repository:
 
-[![Local model browser served by qwen-local](assets/local-model-browser.png)](https://github.com/adithyavemuri/qwen-local)
+```bash
+python examples/create_hindcast_report.py /path/to/wrf/run \
+  --domain d02 --diagnostics all --output reports/my-case
+```
 
-**qwen-local** handles verified downloads, runtime setup and installed-model
-selection. The browser interface is provided by
-[llama.cpp](https://github.com/ggml-org/llama.cpp). Models run locally, one at a
-time; this is not an autonomous agent or a guarantee of answer correctness.
+Open `reports/my-case/hindcast-report.pdf`. The report includes the domains
+found in the run; `d02` selects the primary domain for this example. The same
+workflow can be reused on another case rather than rewriting the analysis.
+
+**Scientific boundary:** this is model-output analysis, not observational
+validation or a bankable wind-resource assessment. The demonstration's hourly
+output is not LES turbulence; unavailable diagnostics are identified explicitly.
+See the [methods and references](https://github.com/adithyavemuri/WRF_tools/blob/main/docs/SCIENTIFIC_METHODS.md).
+
+## Local AI alongside the modelling workflow
+
+[![Local model browser, an optional LocalHarness interface](assets/local-model-browser.png)](https://github.com/adithyavemuri/LocalHarness)
+
+**LocalHarness** handles verified model downloads and local runtime/client setup.
+OpenCode is the default coding client; Cline and the optional
+[llama.cpp](https://github.com/ggml-org/llama.cpp) browser shown above are also
+supported. Models run locally, one at a time. Coding actions depend on the
+chosen client's permissions and still need human review.
 
 ## Interests
 

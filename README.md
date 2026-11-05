@@ -1,21 +1,8 @@
-# Computational Scientist
+# Atmospheric Physics · Wind Energy · Scientific Modelling & Tools
 
-**Atmospheric Physics · Wind Energy · Scientific Modelling & Tools**
-
-I'm Adi, a computational scientist at KNMI with a PhD and research experience
-in atmospheric flows, turbulence and numerical modelling.
-
-My work focuses on understanding atmospheric processes and their applications
-to wind energy through numerical simulations, physical analysis and
-computational methods.
-
-I develop scientific tools and reproducible modelling workflows that connect
-atmospheric simulations, wind-energy analysis and physical diagnostics.
-Together, these projects form the building blocks of an integrated atmospheric
+I develop scientific tools, reproducible modelling workflows, and automation tools that connect
+atmospheric science, wind-energy and physical/statistical analysis/diagnostics. Currently building the blocks of an integrated atmospheric
 and wind-energy modelling platform.
-
-**Current focus:** physics-ensemble experiments, turbine-aware wind-farm
-simulations and integrated atmospheric modelling workflows.
 
 ## Start here
 
@@ -89,6 +76,8 @@ for the tested compatibility boundary.
 - Wind-farm wakes and atmosphere–turbine interactions.
 - Numerical modelling, physics ensembles and model uncertainty.
 - Physical interpretation and reproducible computational research.
+- Local AI for private automation.
+- Music creation with Open-Weight AI models, amongst others.
 
 ## Connect
 

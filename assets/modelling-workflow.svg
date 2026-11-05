@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title description">
+  <title id="title">From atmospheric simulation to wind-energy insight</title>
+  <desc id="description">A scientific workflow schematic. A case TOML defines dates, domains and physics. wrf-era5-case prepares ERA5 forcing and geographical inputs. wrf-autocompiler provides the WRF and WPS build for simulation. WRF_tools analyses output and produces figures, reports and interactive views. A separate inflow workflow requires suitable WRF-LES velocity data for TurbSim and OpenFAST. The illustrated geometry and profile are schematic, not simulation results.</desc>
+  <defs>
+    <linearGradient id="paper" x2="0" y2="1">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f5f8fb"/>
+    </linearGradient>
+    <linearGradient id="ocean" x2="1" y2="1">
+      <stop stop-color="#edf5fa"/>
+      <stop offset="1" stop-color="#dcebf5"/>
+    </linearGradient>
+    <linearGradient id="volume" x2="0" y2="1">
+      <stop stop-color="#dcecf6" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#e8f4f1" stop-opacity="0.3"/>
+    </linearGradient>
+    <pattern id="map-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#8cabbf" stroke-width="0.8" opacity="0.34"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#648194" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <clipPath id="map-clip"><path d="M70 242L309 221L367 361L112 393Z"/></clipPath>
+    <style>
+      text { font-family: 'DejaVu Sans', Arial, sans-serif; fill: #182f45; }
+      .muted { fill: #526b7d; }
+      .stage { font-size: 23px; font-weight: 600; }
+      .number { font-size: 16px; font-weight: 700; fill: #217b84; letter-spacing: 2px; }
+      .detail { font-size: 17px; fill: #526b7d; }
+      .repo { font-size: 21px; font-family: 'DejaVu Sans Mono', monospace; fill: #246277; }
+      .axis { fill: none; stroke: #8197a8; stroke-width: 1.4; }
+      .link { fill: none; stroke: #648194; stroke-width: 1.7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <path fill="url(#paper)" d="M0 0H1200V720H0Z"/>
+  <path fill="#217b84" d="M48 35H88V39H48Z"/>
+  <text x="48" y="80" font-size="31" font-weight="600">From atmospheric simulation to wind-energy insight</text>
+  <text x="48" y="112" font-size="18" class="muted">Reproducible workflows. Inspectable physics. Reusable scientific analysis.</text>
+
+  <path d="M48 140H1152M48 183H1152" stroke="#d8e2e9"/>
+  <text x="48" y="168" font-size="15" font-weight="700" letter-spacing="1.5" class="muted">CASE DEFINITION</text>
+  <text x="239" y="168" font-size="18">TOML</text>
+  <text x="358" y="168" font-size="18" class="muted">Dates &amp; forcing</text>
+  <text x="620" y="168" font-size="18" class="muted">Domains &amp; vertical grid</text>
+  <text x="938" y="168" font-size="18" class="muted">Physics &amp; dynamics</text>
+
+  <text x="48" y="219" class="number">01</text>
+  <text x="88" y="219" class="stage">Atmospheric inputs</text>
+  <text x="442" y="219" class="number">02</text>
+  <text x="482" y="219" class="stage">Numerical simulation</text>
+  <text x="836" y="219" class="number">03</text>
+  <text x="876" y="219" class="stage">Physical interpretation</text>
+
+  <!-- Nested domains over a schematic geographical field. -->
+  <g clip-path="url(#map-clip)">
+    <path fill="url(#ocean)" d="M56 216H380V408H56Z"/>
+    <path d="M226 213C196 245 246 257 219 282S179 301 197 323S181 357 160 375S148 399 164 416H389V211Z" fill="#e6eee6"/>
+    <path d="M226 213C196 245 246 257 219 282S179 301 197 323S181 357 160 375S148 399 164 416" fill="none" stroke="#8aa99d" stroke-width="1.4"/>
+    <path fill="url(#map-grid)" d="M56 216H380V408H56Z"/>
+    <g fill="none" stroke="#669eb8" stroke-width="1.2" opacity="0.65">
+      <path d="M51 263C119 230 148 286 202 266S290 240 365 275"/>
+      <path d="M56 288C128 250 153 308 209 288S301 265 378 299"/>
+      <path d="M67 316C139 276 160 336 215 315S304 294 385 330"/>
+      <path d="M76 346C144 302 169 364 225 344S309 321 388 359"/>
+      <path d="M82 375C151 334 177 392 234 374S315 353 393 392"/>
+    </g>
+  </g>
+  <path d="M70 242L309 221L367 361L112 393Z" fill="none" stroke="#7796ab" stroke-width="1.5"/>
+  <path d="M123 260L285 246L321 344L151 367Z" fill="none" stroke="#376b91" stroke-width="2"/>
+  <path d="M185 282L267 276L286 330L200 341Z" fill="#ffffff" fill-opacity="0.18" stroke="#218481" stroke-width="2.2"/>
+  <text x="135" y="282" font-size="16" font-weight="600" fill="#376b91">d01</text>
+  <text x="210" y="310" font-size="16" font-weight="600" fill="#218481">d02</text>
+
+  <path d="M394 320H425" class="link"/>
+
+  <!-- A schematic model volume above terrain; not a specified vertical grid. -->
+  <path d="M470 280L661 247L756 283L560 321Z" fill="url(#volume)"/>
+  <path d="M470 280L560 321V395L470 354ZM560 321L756 283V357L560 395Z" fill="url(#volume)"/>
+  <g fill="none" stroke="#8bafbf" stroke-width="1.1" stroke-linejoin="round">
+    <path d="M470 280L661 247L756 283L560 321Z"/>
+    <path d="M470 299L661 266L756 302L560 340Z"/>
+    <path d="M470 318L661 285L756 321L560 359Z"/>
+    <path d="M470 337L661 304L756 340L560 378Z"/>
+    <path d="M470 354L560 395L756 357"/>
+    <path d="M470 280V354M515 301V374M560 321V395M609 312V385M658 302V376M707 293V366M756 283V357"/>
+    <path d="M518 272L610 311M566 263L658 302M613 255L707 293"/>
+    <path d="M492 272L682 255M515 288L708 264M537 305L731 274"/>
+  </g>
+  <path d="M470 354L506 359L540 346L565 350L594 330L625 337L656 318L689 324L721 340L756 357L560 395Z" fill="#d2e6dc" fill-opacity="0.95" stroke="#649b88" stroke-width="1.5"/>
+  <g fill="none" stroke="#4f9287" stroke-width="1.2" opacity="0.8">
+    <path d="M495 365L528 362L554 354L585 359L615 341L647 346L679 338L711 348L735 361"/>
+    <path d="M519 378L551 373L582 366L614 371L644 354L677 359L708 352"/>
+  </g>
+  <g fill="none" stroke="#2e7493" stroke-width="2" stroke-linecap="round">
+    <path d="M490 284C538 285 561 267 602 271S664 288 711 273"/>
+    <path d="M496 308C541 309 561 291 608 296S670 311 719 297"/>
+  </g>
+
+  <path d="M788 320H819" class="link"/>
+
+  <!-- Schematic wind profiles at common physical heights. -->
+  <g stroke="#e0e8ee" stroke-width="1">
+    <path d="M887 277H1132M887 313H1132M887 349H1132"/>
+    <path d="M938 251V385M999 251V385M1060 251V385M1121 251V385"/>
+  </g>
+  <path d="M887 246V385H1141" class="axis"/>
+  <text x="868" y="250" font-size="18" font-style="italic">z</text>
+  <text x="1144" y="391" font-size="18" font-style="italic">U</text>
+  <path d="M916 379C941 367 956 348 973 333S1002 310 1017 291S1037 269 1067 252" fill="none" stroke="#3678aa" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M923 379C954 366 971 350 991 334S1038 310 1067 297S1098 270 1109 252" fill="none" stroke="#248b84" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M916 379C941 367 956 348 973 333S1002 310 1017 291S1037 269 1067 252L1109 252C1098 270 1096 284 1067 297S1011 318 991 334S954 366 923 379Z" fill="#d7e9ed" fill-opacity="0.5"/>
+  <text x="1009" y="411" font-size="15" class="muted">Wind profiles</text>
+
+  <text x="48" y="447" font-size="20" font-weight="600">ERA5 reanalysis + geodata</text>
+  <text x="48" y="478" class="repo">wrf-era5-case</text>
+  <text x="48" y="506" class="detail">Hourly forcing · nested domains</text>
+
+  <text x="442" y="447" font-size="21" font-weight="600">WPS → real.exe → wrf.exe</text>
+  <text x="442" y="478" class="repo">wrf-autocompiler</text>
+  <text x="442" y="506" class="detail">Local build · user-selected physics</text>
+
+  <text x="836" y="447" font-size="20" font-weight="600">Wind · turbulence · structure</text>
+  <text x="836" y="478" class="repo">WRF_tools</text>
+  <text x="836" y="506" class="detail">Maps · profiles · interactive 3-D</text>
+
+  <path d="M1000 522V540" fill="none" stroke="#648194" stroke-width="1.7"/>
+  <path d="M1000 540H306V564" class="link"/>
+  <path d="M1000 540V564" class="link"/>
+  <path d="M48 577H1152V676H48Z" fill="#edf3f7"/>
+  <path d="M628 595V658" stroke="#cedce6"/>
+  <text x="70" y="610" font-size="15" font-weight="700" letter-spacing="1.3" class="muted">RESEARCH COMMUNICATION</text>
+  <text x="70" y="641" font-size="22" font-weight="600">Scientific figures &amp; reproducible reports</text>
+  <text x="70" y="665" font-size="17" class="muted">PDF · HTML · documented diagnostics</text>
+  <text x="654" y="610" font-size="15" font-weight="700" letter-spacing="1.3" class="muted">WIND-ENERGY COUPLING</text>
+  <text x="654" y="641" font-size="22" font-weight="600">TurbSim inflow → OpenFAST</text>
+  <text x="654" y="665" font-size="17" class="muted">Requires suitable WRF-LES velocity data</text>
+  <text x="48" y="703" font-size="14" class="muted">Workflow schematic · geometry and profiles are illustrative, not simulation results</text>
+</svg>

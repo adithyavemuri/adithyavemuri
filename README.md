@@ -26,15 +26,7 @@ without compiling or running a new simulation.
 
 ## How the pieces fit together
 
-```mermaid
-flowchart TD
-    config["Case TOML<br/>Dates, domains and physics"] --> prepare["wrf-era5-case<br/>ERA5, geodata and namelists"]
-    build["wrf-autocompiler<br/>Build WRF and WPS"] --> run["Simulation<br/>WPS → real.exe → wrf.exe"]
-    prepare --> run
-    run --> analyse["WRF_tools<br/>Analyse WRF output"]
-    analyse --> reports["Scientific figures<br/>PDF / HTML reports<br/>Interactive 3-D views"]
-    analyse --> inflow["With suitable WRF-LES velocity data<br/>TurbSim inflow for OpenFAST"]
-```
+![Atmospheric modelling workflow: ERA5 and geodata preparation, WRF simulation, physical diagnostics, scientific reports and suitable WRF-LES inflow for OpenFAST](assets/modelling-workflow.svg)
 
 The public packages run independently. A **private workflow prototype** connects
 build, preparation, execution and reporting.

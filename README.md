@@ -1,8 +1,6 @@
 # Atmospheric Physics · Wind Energy · Scientific Modelling & Tools
 
-I develop scientific tools, reproducible modelling workflows, and automation tools that connect
-atmospheric science, wind-energy and physical/statistical analysis/diagnostics. Currently building the blocks of an integrated atmospheric
-and wind-energy modelling platform.
+I develop scientific tools and reproducible modelling workflows that connect atmospheric science, wind energy, and physical and statistical analysis. I'm currently building the components of an integrated atmospheric and wind-energy modelling platform, amongst others.
 
 ## Start here
 

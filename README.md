@@ -1,15 +1,4 @@
-# Adi · Atmospheric modelling, wind energy & scientific software
-
-I'm building an **integrated atmospheric and wind-energy modelling platform**:
-from reproducible ERA5-driven WRF simulations to turbulence diagnostics,
-scientific visualisation and wind-turbine inflow.
-
-My work connects numerical modelling, scientific Python and software engineering.
-The aim is to make research workflows easier to run, inspect and reuse.
-Alongside this, I build practical local AI tooling
-for software development beyond atmospheric science.
-
-## Start here
+Atmospheric modelling, wind energy & Local AI models
 
 **[WRF_tools](https://github.com/adithyavemuri/WRF_tools)** is the public entry
 point: analyse existing WRF output, explore the diagnostics and see the results

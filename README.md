@@ -16,8 +16,7 @@ without compiling or running a new simulation.
 
 ![Atmospheric modelling workflow: ERA5 and geodata preparation, WRF simulation, physical diagnostics, scientific reports and suitable WRF-LES inflow for OpenFAST](assets/modelling-workflow.svg)
 
-The public packages run independently. A **private workflow prototype** connects
-build, preparation, execution and reporting.
+The public packages run independently.
 
 ## Public building blocks
 
